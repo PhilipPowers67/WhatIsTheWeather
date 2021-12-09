@@ -121,7 +121,7 @@ function renderRecoverHistory() {
         historyEl.append(cityItem);
     }
 }
-renderRecoverHistory();
-if (searchHistoryArr.length > 0) {
-    getWeather(searchHistoryArr[searchHistoryArr.length - 1]);
-}
+// renderRecoverHistory();
+// if (searchHistoryArr.length > 0) {
+//     getWeather(searchHistoryArr[searchHistoryArr.length - 1]);
+// }

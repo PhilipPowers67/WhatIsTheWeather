@@ -8,6 +8,7 @@ var recoverHistory = JSON.parse(localStorage.getItem("city"));
 var currentWeatherEl = document.getElementById("current-weather");
 searchHistoryArr = searchHistoryArr.concat(recoverHistory);
 console.log(recoverHistory);
+var historyEl = document.getElementById("history")
 // Current Weather
 var currentNameDate = document.querySelector(".current-name-date");
 var currentTemp = document.querySelector(".current-temp");
@@ -65,7 +66,7 @@ function searchHistory() {
 }
 
 function getWeather(cityName) {
-  var geoUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${APIkey}`;
+  var geoUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=${APIkey}`;
   fetch(geoUrl).then(function (response) {
     const currentDate = new DataTransfer(response.data.dt * 1000);
     const day = currentDate.getDate();
@@ -98,5 +99,29 @@ function populateData(data) {
 
 searchButton.addEventListener("click", function (e) {
   //  console.log(cityname.value)
-  fetchGeo(cityName.value);
+//   fetchGeo(cityName.value);
+    const citySearch = cityName.value;
+    fetchGeo(citySearch);
+    searchHistoryArr.push(citySearch);
+    localStorage.setItem("city", JSON.stringify(recoverHistory));
+    renderRecoverHistory();
 });
+
+function renderRecoverHistory() {
+    historyEl.innerHTML = "";
+    for (let i = 0; i < searchHistory.length; i++) {
+        const cityItem = document.createElement("input");
+        cityItem.setAttribute("type", "text");
+        cityItem.setAttribute("readonly", true);
+        cityItem.setAttribute("class", "form-control");
+        cityItem.setAttribute("value", recoverHistory[i]);
+        cityItem.addEventListener("click", function () {
+            getWeather(cityItem.value);
+        })
+        historyEl.append(cityItem);
+    }
+}
+renderRecoverHistory();
+if (searchHistoryArr.length > 0) {
+    getWeather(searchHistoryArr[searchHistoryArr.length - 1]);
+}

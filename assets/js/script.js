@@ -67,7 +67,7 @@ function searchHistory() {
 }
 
 function getWeather(cityName) {
-  var geoUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${APIkey}`;
+  var geoUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${APIkey}`;
   fetch(geoUrl).then(function (response) {
     const currentDate = new DataTransfer(response.data.dt * 1000);
     const day = currentDate.getDate();

@@ -56,6 +56,7 @@ function fetchWeather(lat, lon) {
 function searchHistory() {
   var ul = document.getElementById("cityList");
   var li = document.createElement("li");
+  
   var saveCity = document.getElementById("searchInput");
   li.appendChild(document.createTextNode(saveCity.value));
   ul.appendChild(li);
@@ -121,7 +122,3 @@ function renderRecoverHistory() {
         historyEl.append(cityItem);
     }
 }
-// renderRecoverHistory();
-// if (searchHistoryArr.length > 0) {
-//     getWeather(searchHistoryArr[searchHistoryArr.length - 1]);
-// }

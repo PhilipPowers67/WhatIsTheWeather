@@ -17,7 +17,7 @@ var currentHumidity = document.querySelector(".current-humidity");
 var currentUVI = document.querySelector(".current-UVI");
 
 function fetchGeo(city) {
-  var geoUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${APIkey}`;
+  var geoUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${APIkey}`;
   fetch(geoUrl)
     .then(function (response) {
       return response.json();
@@ -64,6 +64,7 @@ function searchHistory() {
   searchHistoryArr.push(cityName.value);
   localStorage.setItem("city", JSON.stringify(searchHistoryArr));
   // console.log(searchHistoryArr);
+
 }
 
 function getWeather(cityName) {
@@ -97,6 +98,7 @@ function populateData(data) {
   }
   console.log(data);
 }
+
 
 searchButton.addEventListener("click", function (e) {
   //  console.log(cityname.value)

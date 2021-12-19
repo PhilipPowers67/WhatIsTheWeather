@@ -17,7 +17,7 @@ var currentHumidity = document.querySelector(".current-humidity");
 var currentUVI = document.querySelector(".current-UVI");
 
 function fetchGeo(city) {
-  var geoUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${APIkey}`;
+  var geoUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${APIkey}`;
   fetch(geoUrl)
     .then(function (response) {
       return response.json();

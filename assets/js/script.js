@@ -7,7 +7,6 @@ var searchHistoryArr = [];
 var recoverHistory = JSON.parse(localStorage.getItem("city"));
 var currentWeatherEl = document.getElementById("current-weather");
 searchHistoryArr = searchHistoryArr.concat(recoverHistory);
-console.log(recoverHistory);
 var historyEl = document.getElementById("history")
 // Current Weather
 var currentNameDate = document.querySelector(".current-name-date");
@@ -54,16 +53,30 @@ function fetchWeather(lat, lon) {
 }
 
 function searchHistory() {
-  var ul = document.getElementById("cityList");
-  var li = document.createElement("li");
+  // var ul = document.getElementById("cityList");
+  // var li = document.createElement("li");
   
-  var saveCity = document.getElementById("searchInput");
-  li.appendChild(document.createTextNode(saveCity.value));
-  ul.appendChild(li);
+  // var saveCity = document.getElementById("searchInput");
+  // li.appendChild(document.createTextNode(saveCity.value));
+  // ul.appendChild(li);
 
-  searchHistoryArr.push(cityName.value);
-  localStorage.setItem("city", JSON.stringify(searchHistoryArr));
-  // console.log(searchHistoryArr);
+  // searchHistoryArr.push(cityName.value);
+  // localStorage.setItem("city", JSON.stringify(searchHistoryArr));
+  // // console.log(searchHistoryArr);
+
+  document.querySelector(".searchInput").innerHTML = "";
+
+  for (let i = 0; i < city.length; i++) {
+    var liEl = $(
+      `<button type='button' class='list-group-item list-group-item-action' id='${city[i]}'>${city[i]}</li>`
+    );
+    liEl.appendTo(".searchInput");  
+    
+    $("#" + city[i].click(function(event) {
+      event.preventDefault();
+      fetchGeo(city[i]);
+    }))
+  }
 
 }
 

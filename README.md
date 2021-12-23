@@ -1,22 +1,20 @@
 # WhatIsTheWeather
 Weather Tracking Application
 
-> View, create, and track daily workouts  
->[Link to website](https://pure-everglades-48837.herokuapp.com)
+> View and search for current and 5 day forecasts  
+>[Link to website](https://philippowers67.github.io/WhatIsTheWeather/)
 ## Table of Contents
 * [Description](#Description)
 * [General Info](#General-Info)
 * [Features](#Features)
 * [ScreenShot](#ScreenShot)
 ## Description
-Using mongoose, this application stores workout information to view and update so you can keep track of your fitness goals.
+Using JS and API's I created a weather Dashboard for searching for a city and saving to local storage
 ## General Info
-Workout data is stored in mongoose and is used to create visuals to track previous workouts.
+Cities are stored in local storage.
 ## Features
-* Create new workouts and add to an existing workout
-* View total duration of all workouts
-* View total pounds lifted for all workouts
-### Status
-_Good standing_
-### Developer Notes
-- Could use some verification for days of the week on the chart visual to match dates from the database.
+* Search for a city
+* See the weather that is in the current city
+* See the five day forcast for that city
+### ScreenShot
+![ScreenShot](/assets/ScreenShot/What-is-the-Weather.png)
